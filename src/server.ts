@@ -1,10 +1,5 @@
-import express, {Router} from "express";
-import env from './main/config/env';
-
-const app = express()
-const router = Router
+import express from 'express'
+import app from './main/config/app'
 
 
-app.use('/api', router)
-
-app.listen(env.port, ()=> console.log(`Server is running ${env.port}`))
+app.listen(3002, () => console.log('Server running at http://localhost:3002'))
