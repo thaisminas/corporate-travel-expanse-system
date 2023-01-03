@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  database_travel:
+    image: postgres
+    container_name: db-travel
+    restart: always
+    ports:
+      - '5437:5432'
+    environment:
+      - POSTGRES_USER=tminas
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=travel
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local

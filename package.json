@@ -1,0 +1,41 @@
+{
+  "name": "corporate-travel-expense-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx ts-node-dev src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thais",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.1.0",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.8.0",
+    "ts-jest": "^29.0.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.8.0",
+    "@types/express": "^4.17.15",
+    "@types/pg": "^8.6.6",
+    "eslint": "^8.26.0",
+    "express": "^4.18.2",
+    "fast-glob": "^3.2.12",
+    "module-alias": "^2.2.2",
+    "postgres": "^3.3.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}

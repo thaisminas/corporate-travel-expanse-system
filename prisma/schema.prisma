@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id        Int @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  street    String
+  district  String
+  city      String
+  state     String
+  zipCode   String
+  office    String
+  sector    String
+  manager_name String
+  agency    Int
+  account   Int
+  createdAt DateTime @default(now())
+  travel_registration TravelRegistration[]
+
+  @@map("employee")
+  @@index([id])
+}
+
+
+model RegisterQuotation {
+  id            Int @id @default(autoincrement())
+  travel_registrationId Int      @unique
+  carRental     Float
+  airfare       Float
+  hotel         Float
+  bus_transport  Float
+  createdAt     DateTime @default(now())
+  travel_registration TravelRegistration[]
+
+
+  @@map("register_quotations")
+  @@index([id])
+}
+
+
+
+model TravelRegistration {
+  id              Int @id @default(autoincrement())
+  employee_id     Int @unique
+  employee      Employee @relation(fields: [employee_id], references: [id])
+  travel_arrangementId Int @unique
+  travelArrangement  TravelArrangement @relation(fields: [travel_arrangementId], references: [id])
+  travel_registrationId Int      @unique
+  travelRegistration  RegisterQuotation @relation(fields: [travel_registrationId], references: [id])
+  departure_date   DateTime
+  arrival_date     DateTime
+  one_way          String   @unique
+  inbound         String
+  return_route     String
+  destination_city String
+  departure_city   String
+  advance_amount   String
+  createdAt       DateTime @default(now())
+
+  @@map("travel_registrations")
+  @@index([id])
+}
+
+
+model TravelArrangement {
+  id                  Int @id @default(autoincrement())
+  travel_registrationId Int @unique
+  other_expenses      DateTime
+  food_expenses       Float
+  total_expenses      Float
+  value_to_refund     Float
+  refund_amount       Float
+  status              String
+  createdAt           DateTime @default(now())
+  travel_registration TravelRegistration[]
+
+  @@map("travel_arrangements")
+  @@index([id])
+}
+
+
