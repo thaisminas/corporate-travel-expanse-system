@@ -1,4 +1,4 @@
-import {EmployeeModel} from "@/domain/enitities/models/employee-model";
+import {EmployeeModel} from "../models/employee-model";
 
 export interface EmployeeRecord {
     add: (employee: EmployeeRecord.Params) => Promise<EmployeeRecord.Result>
