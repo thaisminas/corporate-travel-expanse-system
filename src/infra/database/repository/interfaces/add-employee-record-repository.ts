@@ -1,4 +1,4 @@
-import {EmployeeRecord} from "@application/domain/use-cases/employee-record";
+import {EmployeeRecord} from "@application/domain/use-cases/interfaces/employee-record";
 
 export interface AddEmployeeRecordRepository {
     add: (data: AddEmployeeRecordRepository.Params) => Promise<AddEmployeeRecordRepository.Result>

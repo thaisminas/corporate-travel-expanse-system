@@ -1,6 +1,6 @@
 import {container} from "tsyringe";
 import {Controller, HttpResponse} from "@utils/protocols";
-import {EmployeeRecordUseCase} from "../../../application/service/use-cases/employee-record-use-case";
+import {EmployeeRecordUseCase} from "../../../application/domain/use-cases/employee-record-use-case";
 import {badRequest, ok, serverError} from "../../../utils/helpers";
 import {EmployeeModel} from "@application/domain/models/employee-model";
 

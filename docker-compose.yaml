@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=travel
     volumes:
-      - pgdata:/service/postgres
+      - pgdata:/use-cases/postgres
 
 volumes:
   pgdata:

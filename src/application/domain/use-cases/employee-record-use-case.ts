@@ -1,6 +1,6 @@
 // @ts-nocheck
-import {EmployeeRecord} from "../../domain/use-cases/employee-record";
-import {AddEmployeeRecordRepository} from "../interfaces/add-employee-record-repository";
+import {EmployeeRecord} from "./interfaces/employee-record";
+import {AddEmployeeRecordRepository} from "../../../infra/database/repository/interfaces/add-employee-record-repository";
 import {EmployeePrismaRepository} from "../../../infra/database/repository/employee-prisma-repository";
 import { inject, injectable } from "tsyringe";
 
