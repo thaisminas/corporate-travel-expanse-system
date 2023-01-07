@@ -2,9 +2,9 @@ version: '3.7'
 
 services:
 
-  database_travel:
+  database_ignite:
     image: postgres
-    container_name: db-travel
+    container_name: database-travel
     restart: always
     ports:
       - '5437:5432'
@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=travel
     volumes:
-      - pgdata:/data/postgres
+      - pgdata:/service/postgres
 
 volumes:
   pgdata:

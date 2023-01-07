@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "outDir": "dist",
     "module": "commonjs",
     "target": "es2019",
@@ -8,8 +9,8 @@
     "rootDirs": ["src", "tests"],
     "baseUrl": "src",
     "paths": {
-      "@/tests/*": ["../tests/*"],
-      "@/*": ["*"]
+      "@tests/*": ["../tests/*"],
+      "@*": ["*"]
     }
   },
   "include": ["src", "tests"],
