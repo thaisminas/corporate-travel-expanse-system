@@ -1,4 +1,4 @@
-import {TravelRegistrationModel} from "@application/domain/models/travel-registration-model";
+import {TravelRegistrationEntity} from "@application/domain/entities/travel-registration-entity";
 
 
 export interface TravelRegistration {
@@ -6,6 +6,6 @@ export interface TravelRegistration {
 }
 
 export namespace TravelRegister {
-    export type Params = TravelRegistrationModel
-    export type Result = TravelRegistrationModel
+    export type Params = TravelRegistrationEntity
+    export type Result = TravelRegistrationEntity
 }

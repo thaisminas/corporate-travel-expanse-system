@@ -1,10 +1,11 @@
-import {QuotationModel} from "@application/domain/models/quotation-model";
+
+import {QuotationEntity} from "@application/domain/entities/quotation-entity";
 
 
-export type TravelRegistrationModel = {
+export type TravelRegistrationEntity = {
     id: number
     // employeeId: EmployeeModel
-    quotationId: QuotationModel
+    quotationId: QuotationEntity
     departureDate: Date
     arrivalDate: Date
     oneWay: string

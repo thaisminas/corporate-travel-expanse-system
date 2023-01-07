@@ -1,4 +1,4 @@
-export type EmployeeModel = {
+export type EmployeeEntity = {
     id: number;
     name: string;
     email: string;
