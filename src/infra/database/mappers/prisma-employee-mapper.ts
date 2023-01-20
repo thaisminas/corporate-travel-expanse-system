@@ -1,8 +1,9 @@
-import {AddEmployeeRecordRepository} from "@application/service/interfaces/add-employee-record-repository";
+
+import {Employee} from "@application/interfaces/employee-interface";
 
 
 export class PrismaEmployeeMapper {
-    static toPrisma(data: AddEmployeeRecordRepository.Params) {
+    static toPrisma(data: Employee.Params) {
         return {
             name: data.name,
             email: data.email,

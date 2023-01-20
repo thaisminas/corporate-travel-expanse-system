@@ -1,27 +1,34 @@
 import 'reflect-metadata';
-import express from 'express'
-// import app from './main/config/app'
 import {bodyParser, contentType, cors} from "./infra/http/middlewares";
-import {routes} from "./infra/http/routes/routes-controllers";
+import {Container} from "inversify";
+import {EmployeePrismaRepository} from "../src/infra/database/repository/employee-prisma-repository";
+import {InversifyExpressServer, TYPE} from 'inversify-express-utils';
+import './infra/http/controller/employee-controller'
+import TYPES from "./infra/http/types/ioc.types";
+import {EmployeeService} from "../src/application/services/employee-service";
 
-import "./infra/container"
+const container = new Container({
+    autoBindInjectable: false,
+    defaultScope: 'Transient',
+});
 
-const app = express()
-app.use(bodyParser)
-app.use(cors)
-app.use(contentType)
+container.bind<EmployeePrismaRepository>(TYPES.EmployeePrismaRepository)
+    .to(EmployeePrismaRepository);
 
-app.use(routes);
+container.bind<EmployeeService>(TYPES.EmployeeService)
+    .to(EmployeeService);
 
-// app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
-//     if(err instanceof AppError){
-//         return response.status(err.statusCode).json({ message: err.message })
-//     };
-//
-//     return response.status(500).json({
-//         status: "error",
-//         message: `Internal server error - ${err.message}`
-//     });
-// })
 
-app.listen(3002, () => console.log('Server running at http://localhost:3002'))
+let server = new InversifyExpressServer(container);
+server.setConfig((app) => {
+    app.use(bodyParser)
+    app.use(cors)
+    app.use(contentType)
+});
+
+const serverInstance = server.build();
+serverInstance.listen(3002, () => {
+    console.log('Server running at http://localhost:3002');
+});
+
+
